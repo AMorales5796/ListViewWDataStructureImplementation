@@ -1,8 +1,11 @@
 package com.example.listviewwdatastructureimplementation;
 
+import org.w3c.dom.Node;
+
 public class DoublyLL
 {
     Node head, tail, next, prev;
+    private int count;
 
     public int getTailData()
     {
@@ -156,8 +159,25 @@ Peak
         }//end of while loop
     }//end of showList method
 
+    public Integer[] toArray()
+    {
+        Integer[] QArray = new Integer[count];
+
+
+
+        int position  = getTailData();
+        //System.out.println(head.getsData());
+        //System.out.println(tail.getsLink().getsData());
+        for(int i = 0; i < count; i++)
+        {
+//            System.out.println(position.getsData());
+//            System.out.println("-");
+            QArray[i] = position;
+            position = position.next();
+        }
+
     //NODE CLASS
-    private class Node
+        class Node
     {
         //instance variables
         private int data;
