@@ -1,21 +1,23 @@
-package com.example.listviewwdatastructureimplementation;
+package com.example.listview;
 
-import org.w3c.dom.Node;
 
 public class DoublyLL
 {
-    Node head, tail, next, prev;
+    private DLLNode head;
+    private DLLNode tail;
+    private DLLNode next;
+    private DLLNode prev;
     private int count;
 
-    public int getTailData()
+    public String getTailData()
     {
         return tail.getData();
     }
 
     public DoublyLL()
     {
-        Node headNode = null;
-        Node tailNode = null;
+        DLLNode headNode = null;
+        DLLNode tailNode = null;
     }//public default constructor for doubly linked list
 
     /*
@@ -35,11 +37,11 @@ public class DoublyLL
     */
 
     //INSERTIONS METHODS
-    public void push(int newData)
+    public void push(String newData)
     {
         //pushing is the insertion method that inserts a new head node
 
-        Node newDLLNode = new Node(newData); //first create the new temp node
+        DLLNode newDLLNode = new DLLNode(newData); //first create the new temp node
 
         newDLLNode.setPrev(null); //previous pointer is null; that's what makes it the head
         newDLLNode.setNext(head); //next pointer is linked as head
@@ -52,11 +54,11 @@ public class DoublyLL
         head = newDLLNode; //finally assign the whole new node as the head node
     }//end of push method (IT WORKSSSSS!!!)
 
-    public void pushAtEnd(int newData)
+    public void pushAtEnd(String newData)
     {
-        Node newDLLNode = new Node(newData); //first create the new temp node
+        DLLNode newDLLNode = new DLLNode(newData); //first create the new temp node
 
-        Node tail = head;
+        DLLNode tail = head;
 
         newDLLNode.next = null;
 
@@ -88,7 +90,7 @@ public class DoublyLL
         tail = newDLLNode; //finally assign the whole new node as the tail node*/
     }//end of pushAtEnd method (THIS WORKSSS TOOO!!)
 
-    void pop(Node head_ref, Node del)
+    void pop(DLLNode head_ref, DLLNode del)
     {
 
         // Base case
@@ -134,7 +136,7 @@ Peak
 
     public int findSize()
     {
-        Node current = head; //start off with the head of the list
+        DLLNode current = head; //start off with the head of the list
         int size = 0; //create a counter int variable
         while (current != null)
         {
@@ -149,7 +151,7 @@ Peak
         if(head == null) {
             System.out.println("List is empty");
         }//list null validation
-        Node current = head; //start off with the head of the list
+        DLLNode current = head; //start off with the head of the list
 
         while (current != null) //run below if the node is not the tail; it's not null
         {
@@ -159,61 +161,63 @@ Peak
         }//end of while loop
     }//end of showList method
 
-    public Integer[] toArray()
+    public String[] toArray()
     {
-        Integer[] QArray = new Integer[count];
+        String[] DLLArray = new String[count];
 
 
-
-        int position  = getTailData();
+        String position = getTailData();
         //System.out.println(head.getsData());
         //System.out.println(tail.getsLink().getsData());
-        for(int i = 0; i < count; i++)
+        for (int i = 0; i < count; i++)
         {
 //            System.out.println(position.getsData());
 //            System.out.println("-");
-            QArray[i] = position;
+            DLLArray[i] = position.getData();
             position = position.next();
         }
+        return DLLArray;
+    }
 
     //NODE CLASS
-        class Node
+    public class DLLNode
     {
         //instance variables
-        private int data;
-        private Node head;
-        private Node tail;
-        private Node next;
-        private Node prev;
+        private String data;
+        private DLLNode head;
+        private DLLNode tail;
+        private DLLNode next;
+        private DLLNode prev;
 
         //constructors
-        Node (int newData)
+        public DLLNode (String newData, DLLNode next)
         {
             this.data = newData;
+            this.next = next;
         }
 
         //getters
-        public int getData()
+        public String getData()
         {
             return data;
         }
 
-        public Node getPrev()
+        public DLLNode getPrev()
         {
             return prev;
         }
 
-        public Node getNext()
+        public DLLNode getNext()
         {
             return next;
         }
 
-        public Node getHead(){ return head; }
+        public DLLNode getHead(){ return head; }
 
-        public Node getTail(){ return tail; }
+        public DLLNode getTail(){ return tail; }
 
         //setters
-        public void setData(int data) {
+        public void setData(String data) {
             this.data = data;
         }
 
@@ -230,13 +234,6 @@ Peak
         public void setTail() { this.tail = tail; }
 
 
-        public void setPrev(Node prev) {
-            this.prev = prev;
-        }
-
-        public void setNext(Node next) {
-            this.next = next;
-        }
 
         //toStrings
         public String prevToString()
