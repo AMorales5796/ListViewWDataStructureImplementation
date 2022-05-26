@@ -2,6 +2,7 @@ package com.example.listview;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.*;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -22,17 +23,16 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         setContentView(R.layout.activity_main);
 
         DoublyLL Songs = new DoublyLL();
-        Songs.push("");
-        Songs.pushAtEnd("");
-        Songs.pushAtEnd("");
+        Songs.push("AAA");
+        Songs.pushAtEnd("BB");
+        Songs.pushAtEnd("C");
 
 
         String[] DLLToArray =  Songs.toArray();
 
         SongList = findViewById(R.id.SongList);
 
-        //ArrayAdapter<String> monthAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, months);
-        ArrayAdapter<String> songAdapter = new ArrayAdapter<String>(this,R.id.list_item,DLLToArray);
+        ArrayAdapter<String> songAdapter = new ArrayAdapter<String>(this,R.layout.activity_main,DLLToArray);
 
         SongList.setAdapter(songAdapter);
         SongList.setOnItemClickListener(this);

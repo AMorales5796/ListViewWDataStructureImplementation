@@ -41,10 +41,10 @@ public class DoublyLL
     {
         //pushing is the insertion method that inserts a new head node
 
-        DLLNode newDLLNode = new DLLNode(newData); //first create the new temp node
+        DLLNode newDLLNode = new DLLNode(newData,next); //first create the new temp node
 
-        newDLLNode.setPrev(null); //previous pointer is null; that's what makes it the head
-        newDLLNode.setNext(head); //next pointer is linked as head
+        newDLLNode.prev = null; //previous pointer is null; that's what makes it the head
+        newDLLNode.next = head; //next pointer is linked as head
 
         if (head != null)
         {
@@ -56,7 +56,7 @@ public class DoublyLL
 
     public void pushAtEnd(String newData)
     {
-        DLLNode newDLLNode = new DLLNode(newData); //first create the new temp node
+        DLLNode newDLLNode = new DLLNode(newData,next); //first create the new temp node
 
         DLLNode tail = head;
 
@@ -163,20 +163,18 @@ Peak
 
     public String[] toArray()
     {
-        String[] DLLArray = new String[count];
+        String[] arr = new String[findSize()];
+        int i = 0;
 
+        DLLNode current = head; //start off with the head of the list
 
-        String position = getTailData();
-        //System.out.println(head.getsData());
-        //System.out.println(tail.getsLink().getsData());
-        for (int i = 0; i < count; i++)
+        while (current != null) //run below if the node is not the tail; it's not null
         {
-//            System.out.println(position.getsData());
-//            System.out.println("-");
-            DLLArray[i] = position.getData();
-            position = position.next();
-        }
-        return DLLArray;
+            arr[i] = current.data;
+            current = current.next; //moves on to the next node
+
+        }//end of while loop
+        return arr;
     }
 
     //NODE CLASS
