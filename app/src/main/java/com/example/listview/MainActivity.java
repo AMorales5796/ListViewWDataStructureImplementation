@@ -2,7 +2,6 @@ package com.example.listview;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.*;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -15,7 +14,7 @@ import com.example.listviewwdatastructureimplementation.R;
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener{
 
     ListView SongList;
-    String[] titles;
+    String[] DLLToArray;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,13 +25,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         Songs.push("AAA");
         Songs.pushAtEnd("BB");
         Songs.pushAtEnd("C");
+        Songs.push("ok");
 
 
-        String[] DLLToArray =  Songs.toArray();
+        DLLToArray =  Songs.toArray();
 
         SongList = findViewById(R.id.SongList);
 
-        ArrayAdapter<String> songAdapter = new ArrayAdapter<String>(this,R.layout.activity_main,DLLToArray);
+        ArrayAdapter<String> songAdapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,DLLToArray);
 
         SongList.setAdapter(songAdapter);
         SongList.setOnItemClickListener(this);

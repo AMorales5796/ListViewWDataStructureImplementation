@@ -3,11 +3,11 @@ package com.example.listview;
 
 public class DoublyLL
 {
-    private DLLNode head;
-    private DLLNode tail;
-    private DLLNode next;
-    private DLLNode prev;
-    private int count;
+     DLLNode head;
+     DLLNode tail;
+     DLLNode next;
+     DLLNode prev;
+     int count;
 
     public String getTailData()
     {
@@ -181,9 +181,9 @@ Peak
     public class DLLNode
     {
         //instance variables
-        private String data;
-        private DLLNode head;
-        private DLLNode tail;
+        private final String data;
+       // private DLLNode head;
+       // private DLLNode tail;
         private DLLNode next;
         private DLLNode prev;
 
@@ -200,36 +200,36 @@ Peak
             return data;
         }
 
-        public DLLNode getPrev()
-        {
-            return prev;
-        }
+//        public DLLNode getPrev()
+//        {
+//            return prev;
+//        }
+//
+//        public DLLNode getNext()
+//        {
+//            return next;
+//        }
+//
+//        public DLLNode getHead(){ return head; }
+//
+//        public DLLNode getTail(){ return tail; }
+//
+//        //setters
+//        public void setData(String data) {
+//            this.data = data;
+//        }
 
-        public DLLNode getNext()
-        {
-            return next;
-        }
-
-        public DLLNode getHead(){ return head; }
-
-        public DLLNode getTail(){ return tail; }
-
-        //setters
-        public void setData(String data) {
-            this.data = data;
-        }
-
-        public void setPrev() {
-            this.prev = prev;
-        }
-
-        public void setNext() {
-            this.next = next;
-        }
-
-        public void setHead() { this.head = head; }
-
-        public void setTail() { this.tail = tail; }
+//        public void setPrev() {
+//            this.prev = prev;
+//        }
+//
+//        public void setNext() {
+//            this.next = next;
+//        }
+//
+//        public void setHead() { this.head = head; }
+//
+//        public void setTail() { this.tail = tail; }
 
 
 
